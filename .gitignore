@@ -1,0 +1,10 @@
+AWS/
+*.pem
+.csv
+__pycache__
+__pycache__/
+*.pyc
+.DS_Store
+*.tar
+AWSCLIV2.pkg
+test_output.jpg
