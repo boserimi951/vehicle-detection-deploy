@@ -93,4 +93,6 @@ def postprocess(output, conf_threshold = 0.25, iou_threshold = 0.45,
         return results
 
 
-    
+@app.get('/health')
+def health():
+    return{'status':'Ok'}   
