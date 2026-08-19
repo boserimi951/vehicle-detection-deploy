@@ -22,7 +22,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.0
@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
             docker stop vehicle_detection || true
             docker rm vehicle_detection || true
-            docker run -d --name vehicle_detection -p 8000:8000 --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
+            docker run -d --name vehicle_detection -p 8000:8000 --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
