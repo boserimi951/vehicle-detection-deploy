@@ -16,7 +16,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     
@@ -27,6 +27,6 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
-          docker stop vehicle-detection || true
-          docker run -d -p 8000:8000 --name vehicle-detection ${{ secrets.DOCKER_USERNAME }}/vehicle-detection:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
+          docker stop vehicle_detection || true
+          docker run -d -p 8000:8000 --name vehicle_detection ${{ secrets.DOCKER_USERNAME }}/vehicle_detection:latest
